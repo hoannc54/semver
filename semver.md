@@ -1,18 +1,16 @@
 Semantic Versioning 2.0.0
 ==============================
 
-Summary
+Tóm tắt
 -------
 
-Given a version number MAJOR.MINOR.PATCH, increment the:
+Số phiên bản có dạng MAJOR.MINOR.PATCH, tăng dần:
 
-1. MAJOR version when you make incompatible API changes,
-1. MINOR version when you add functionality in a backwards-compatible
-   manner, and
-1. PATCH version when you make backwards-compatible bug fixes.
+1. MAJOR version khi bạn thay đổi API thì không còn tương thích,
+1. MINOR version khi bạn thêm một tính năng vẫn tương thích với phiên bản cũ
+1. PATCH version khi bạn fix lỗi vẫn tương thích với phiên bản cũ.
 
-Additional labels for pre-release and build metadata are available as extensions
-to the MAJOR.MINOR.PATCH format.
+Ngoài ra có thể thêm các nhãn vào trước và những bản build metadata được coi là các extension cho MAJOR.MINOR.PATCH.
 
 Introduction
 ------------
