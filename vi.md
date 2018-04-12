@@ -38,9 +38,9 @@ Semantic Versioning Specification (SemVer)
 Các từ khoá "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY",
  và "OPTIONAL" trong tài liệu này là sẽ được hiểu như mô tả trong [RFC 2119](http://tools.ietf.org/html/rfc2119).
 
-1. Phần mềm sử dụng phiên bản ngữ nghĩa PHẢI khai báo một API công khai. 
+1. Phần mềm sử dụng Semantic Versioning PHẢI khai báo một API công khai. 
 API này có thể được khai báo trong chính mã hoặc tồn tại trong tài liệu. 
-Tuy nhiên nó được thực hiện, nó phải chính xác và toàn diện.
+Tuy nhiên khi hoàn thành, nó nên chính xác và toàn diện.
 
 2. Một phiên bản đánh số bình thường phải (MUST) theo chuẩn X.Y.Z ở đó X, Y, và Z là các số nguyên không âm, 
 và phải không (MUST NOT) chứa số 0 đầu hàng. X là phiên bản chính, 
@@ -74,7 +74,7 @@ Ví dụ: 1.0.0-alpha, 1.0.0-alpha.1, 1.0.0-0.3.7, 1.0.0-x.7.z.92.
 10. Các bản metadata có thể (MAY) được biểu thị bằng cách thêm các một dấu cộng '+' và một loạt các dấu chấm '.' để tách các định danh ngay sau số hiệu của các bản vá hoặc bản pre-release. Các định danh phải (MUST) chỉ bao gồm các ký tự ASCII và dấu gạch ngang [0-9A-Za-z-].Các định danh không được (MUST NOT) trống. Các bản metadata phải (MUST) được bỏ qua khi xác định độ ưu tiên của các phiên bản. 
 Do đó hai phiên bản mà chỉ khác nhau ở bản metadat thì có thể được coi là tương đồng. Ví dụ: 1.0.0-alpha+001, 1.0.0+20130313144700, 1.0.0-beta+exp.sha.5114f85.
 
-11. Ưu tiên đề cập đến cách các phiên bản được so sánh với nhau khi đặt hàng
+11. Làm thế nào so sánh thứ tự ưu tiên giữa các phiên bản.
  Quyền ưu tiên phải (MUST) được tính toán bằng cách tách các phiên bản thành số nhận diện phiên bản chính (major), phụ (minor), bản vá (patch) và tiền phát hành (pre-release) trong khi gọi (Bản metadata không được tính vào quyền ưu tiên). Precedence được xác định bởi sự khác biệt đầu tiên khi so sánh mỗi định danh từ trái sang phải: phiên bản Major, minor, và patch luôn luôn được so sánh về số. Ví dụ: 1.0.0 < 2.0.0 < 2.1.0 < 2.1.1.Khi các phiên bản major, minor, và patch bằng nhau, một phiên bản pre-release có ưu tiên thấp hơn phiên bản bình thường. Ví dụ: 1.0.0-alpha < 1.0.0. Quyền ưu tiên cho 2 phiên bản pre-release mà giống nhau về phiên bản major, minor, và patch phải (MUST) được xác định bằng cách so sánh mỗi dấu phân tách từ trái sang phải cho đến khi tìm thấy một sự khác biệt: 
  định danh chỉ bao gồm các chữ số được so sánh về số và định danh với chữ cái hoặc dấu gạch ngang được so sánh theo thứ thự ASCII. 
  Các định danh số luôn có độ ưu tiên thấp hơn các định danh không phải là số. 
@@ -146,10 +146,10 @@ Backus–Naur Form Grammar for Valid SemVer Versions
                | "y" | "z"
 
 
-Why Use Semantic Versioning?
+Tại sao dùng Semantic Versioning?
 ----------------------------
 
-Đây không phải là một ý tưởng mới hay cách mạng. Trên thực tế, bạn có thể làm một cái gì đó gần với điều này.
+Đây không phải là một ý tưởng mới hay cách mạng. Trên thực tế, bạn có thể đã làm một cái gì đó gần giống với điều này.
  Vấn đề là "close" đó không đủ tốt. Nếu không tuân thủ một số loại đặc tả chính thức, số phiên bản chủ yếu không có ích cho quản lý phụ thuộc. 
  Bằng cách đặt tên và định nghĩa rõ ràng cho những ý tưởng trên, sẽ dễ dàng truyền đạt ý định của bạn cho người dùng phần mềm của bạn.
   Một khi các ý định này là rõ ràng, cuối cùng có thể được tạo ra đặc điểm phụ thuộc (nhưng không quá linh hoạt).
@@ -160,14 +160,14 @@ Semantically Versioned gói có tên "Ladder." Vào thời điểm Firetruck đ�
  Ladder ở phiên bản 3.1.0. Kể từ Firetruck sử dụng một số chức năng đã được giới thiệu lần đầu tiên trong 3.1.0,
   bạn có thể chỉ định một cách an toàn sự phụ thuộc Ladder lớn hơn hoặc bằng 3.1.0 nhưng ít hơn 4.0.0. Bây giờ,
    khi Ladder phiên bản 3.1.1 và 3.2.0 trở nên có sẵn,
-   bạn có thể giải phóng chúng vào hệ thống quản lý gói và biết rằng chúng sẽ tương thích với phần mềm phụ thuộc hiện có.
+   bạn có thể phát hành chúng vào hệ thống quản lý gói và biết rằng chúng sẽ tương thích với phần mềm phụ thuộc hiện có.
 
-Là một nhà phát triển có trách nhiệm, bạn sẽ, tất nhiên, muốn xác minh rằng bất kỳ chức năng nâng cấp gói nào được quảng cáo. Thế giới thực là một nơi lộn xộn,
+Là một nhà phát triển có trách nhiệm, bạn sẽ, tất nhiên, muốn xác minh rằng bất kỳ chức năng nâng cấp gói nào đều được công bố. Thực tế đó là một nơi lộn xộn,
 không có gì chúng ta có thể làm được về điều đó nhưng phải thận trọng. Bạn có thể làm gì
-Semantic Versioning cung cấp cho bạn một cách lành mạnh để phát hành và nâng cấp gói mà không cần phải cuộn phiên bản mới của gói phụ thuộc, tiết kiệm thời gian và rắc rối.
+Semantic Versioning cung cấp cho bạn một cách phát hành và nâng cấp gói mà không cần phải gọi lại các phụ thuộc của phiên bản mới, tiết kiệm thời gian và tránh rắc rối.
 
 Nếu tất cả những điều này là mong muốn, tất cả những gì bạn cần làm để bắt đầu sử dụng Semantic
-Versioning là tuyên bố rằng bạn đang làm như vậy và sau đó làm theo các quy tắc. Liên kết tới trang web này từ README của bạn để những người khác biết các quy tắc và có thể có ích từ họ.
+Versioning để khai báo những gì bạn làm và tuân thủ quy tắc đó. Liên kết tới trang web này từ README của bạn để những người khác biết các quy tắc và có thể có ích từ chúng.
 
 
 FAQ
